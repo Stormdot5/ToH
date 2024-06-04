@@ -1,0 +1,35 @@
+name: 'push request'
+
+on:
+    push:
+        branches: [**]
+
+jobs:
+    build:
+        name: 'Build the app'
+        runs-on: ubuntu-latest
+        steps:
+            - name: 'Install dependencies'
+              run: |
+                npm i --force
+            - name: 'Run built item'
+              run: |
+                npm run build
+
+    # check:
+    #     name: 'OWASP Scan'
+    #     runs-on: ubuntu-latest
+    #     steps:
+
+
+    # record:
+    #     name: 'Record some information'
+    #     runs-on: ubuntu-latest
+    #     steps:
+    #         - uses: 
+
+    # store:
+    #     name: 'save a file'
+    #     runs-on: ubuntu-latest
+    #     steps:
+
