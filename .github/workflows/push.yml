@@ -1,19 +1,23 @@
 name: 'push request'
 
 on:
-    push:
+    workflow_dispatch:
 
 jobs:
     build:
         name: 'Build the app'
         runs-on: ubuntu-latest
         steps:
+            - name: 'Checkout branch'
+              uses: actions/checkout@v4
             - name: 'Install dependencies'
               run: |
                 npm install
             - name: 'Run built item'
               run: |
                 npm run build
+
+    # Adding comments for testing out changes
 
     # check:
     #     name: 'OWASP Scan'
