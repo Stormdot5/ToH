@@ -16,6 +16,13 @@ jobs:
             - name: 'Run built item'
               run: |
                 npm run build
+            - uses: actions/github-script@v7
+              env:
+                report: ${{ vars.GITHUB_SHA }}
+              with:
+                script: |
+                  console.log (env.report)
+
 
     # Adding comments for testing out changes
 
