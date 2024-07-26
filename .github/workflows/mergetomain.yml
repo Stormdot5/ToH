@@ -30,3 +30,4 @@ jobs:
         uses: ./.github/workflows/recordinfo.yml
         with:
             passedinfo: "Passed info: github ref=${{ github.ref }} github ref_name=${{ github.ref_name }} github event_name=${{ github.event_name }} github event_path=${{ github.event_path }}"
+
