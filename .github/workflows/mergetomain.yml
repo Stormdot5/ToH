@@ -17,6 +17,16 @@ jobs:
             - name: 'Run built item'
               run: |
                 npm run build
-            - name: 'set env variable'
-              run: echo "shaUsed=${{ vars.GITHUB_SHA }}" >> $GITHUB_ENV
+            - name: 'write out info'
+              run:
+                echo "github ref=${{ github.ref }}"
+                echo "github ref_name=${{ github.ref_name }}"
+                echo "github event_name=${{ github.event_name }}"
+                echo "github event_path=${{ github.event_path }}"
+    
+    record:
+        name: 'recordinfo'
+        uses: ./.github/workflows/recordinfo.yml
+        with:
+            passedinfo: "Passed info: github ref=${{ github.ref }} github ref_name=${{ github.ref_name }} github event_name=${{ github.event_name }} github event_path=${{ github.event_path }}"
 
