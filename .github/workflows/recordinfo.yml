@@ -29,6 +29,4 @@ jobs:
             
             - name: Ouput Branch Info
               run: |
-                with:
-                    branchInfo:
                 echo ${{ steps.get__branch_info.outputs.branchInfo }}
