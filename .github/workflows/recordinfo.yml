@@ -1,0 +1,25 @@
+name: 'recordinfo'
+
+on:
+    workflow_dispatch:
+    workflow_call:
+        inputs:
+            passedinfo:
+                description: 'passed in info'
+                required: false
+                default: ''
+                type: string
+
+jobs:
+    writeoutinfo:
+        runs-on: ubuntu-latest
+        steps:
+            - name: 'write out info'
+              run:
+                echo "github ref=${{ github.ref }}"
+                echo "github ref_name=${{ github.ref_name }}"
+                echo "github event_name=${{ github.event_name }}"
+                echo "github event_path=${{ github.event_path }}"
+                echo ""
+                echo "${{ inputs.passedinfo }}"
+                
