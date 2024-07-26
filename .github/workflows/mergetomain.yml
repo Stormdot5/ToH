@@ -23,6 +23,7 @@ jobs:
                 echo "github ref_name=${{ github.ref_name }}"
                 echo "github event_name=${{ github.event_name }}"
                 echo "github event_path=${{ github.event_path }}"
+                echo "github event_push_ref=${{ github.event.push.ref }}"
     
     record:
         name: 'recordinfo'
