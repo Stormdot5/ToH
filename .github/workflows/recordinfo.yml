@@ -30,6 +30,6 @@ jobs:
             
             - name: Ouput Branch Info
               env:
-                BRANCH_INFO: ${{ steps.get__branch_info.outputs.branchInfo }}
+                BRANCH_INFO: ${{ inputs.branchInfo }}
               run: |
                 echo "$BRANCH_INFO"
