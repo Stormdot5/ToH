@@ -24,5 +24,7 @@ jobs:
                 echo "${{ inputs.passedinfo }}"
             
             - name: Ouput Branch Info
+              env:
+                BRANCH_INFO: ${{ steps.get__branch_info.outputs.branchInfo }}
               run: |
-                echo ${{ steps.get__branch_info.outputs.branchInfo }}
+                echo "$BRANCH_INFO"
