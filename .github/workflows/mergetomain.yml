@@ -30,10 +30,11 @@ jobs:
               id: get__branch_info
               # run: echo "::set-output name=branchInfo::$(git log -1 --pretty=reference)"
               run: echo "branchInfo=$(git log -1 --pretty=reference)" >> "$GITHUB_ENV"
-              
+                   echo ${{ github.env.branchInfo }}
 
     record:
         name: 'recordinfo'
+        needs: [build]
         uses: ./.github/workflows/recordinfo.yml
         with:
             passedinfo: "Passed info: github ref=${{ github.ref }} github ref_name=${{ github.ref_name }} github event_name=${{ github.event_name }} github event_path=${{ github.event_path }}"
