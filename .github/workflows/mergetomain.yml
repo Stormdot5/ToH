@@ -29,7 +29,7 @@ jobs:
             - name: Get Branch Info
               id: get__branch_info
               # run: echo "::set-output name=branchInfo::$(git log -1 --pretty=reference)"
-              run: echo "branchInfo=$(git log -1 --pretty=reference)" >> $GITHUB_OUTPUT
+              run: echo branchInfo=$(git log -1 --pretty=reference) >> $GITHUB_OUTPUT
               
 
     record:
