@@ -23,10 +23,6 @@ jobs:
                 echo ""
                 echo "${{ inputs.passedinfo }}"
             
-            - name: Get Branch Info
-              id: get__branch_info
-              run: echo "::set-output name=branchInfo::$(git log -1 --pretty=reference)"
-            
             - name: Ouput Branch Info
               run: |
                 echo ${{ steps.get__branch_info.outputs.branchInfo }}
