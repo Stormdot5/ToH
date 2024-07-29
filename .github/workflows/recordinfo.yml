@@ -9,6 +9,11 @@ on:
                 required: false
                 default: ''
                 type: string
+            branchInfo:
+                description: 'the branch info'
+                required: false
+                default: ''
+                type: string
 
 jobs:
     writeoutinfo:
