@@ -9,6 +9,11 @@ on:
                 required: false
                 default: ''
                 type: string
+            branchInfo:
+                description: 'the branch info'
+                required: false
+                default: ''
+                type: string
 
 jobs:
     writeoutinfo:
@@ -24,5 +29,7 @@ jobs:
                 echo "${{ inputs.passedinfo }}"
             
             - name: Ouput Branch Info
+              env:
+                BRANCH_INFO: ${{ steps.get__branch_info.outputs.branchInfo }}
               run: |
-                echo ${{ steps.get__branch_info.outputs.branchInfo }}
+                echo "$BRANCH_INFO"
