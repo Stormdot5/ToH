@@ -17,15 +17,20 @@ jobs:
             - name: 'Run built item'
               run: |
                 npm run build
-            - name: 'write out info'
-              run:
-                echo "github ref=${{ github.ref }}"
-                echo "github ref_name=${{ github.ref_name }}"
-                echo "github event_name=${{ github.event_name }}"
-                echo "github event_path=${{ github.event_path }}"
-                echo "github event_push_ref=${{ github.event.push.ref }}"
-                echo "github head_ref=${{ github.head_ref }}"
-                echo "github base_ref=${{ github.base_ref }}"
+            # - name: 'write out info'
+            #   run:
+            #     echo "github ref=${{ github.ref }}"
+            #     echo "github ref_name=${{ github.ref_name }}"
+            #     echo "github event_name=${{ github.event_name }}"
+            #     echo "github event_path=${{ github.event_path }}"
+            #     echo "github event_push_ref=${{ github.event.push.ref }}"
+            #     echo "github head_ref=${{ github.head_ref }}"
+            #     echo "github base_ref=${{ github.base_ref }}"
+            - name: Get Branch Info
+              id: get__branch_info
+              # run: echo "::set-output name=branchInfo::$(git log -1 --pretty=reference)"
+              run: echo "branchInfo=$(git log -1 --pretty=reference)" >> $GITHUB_OUTPUT
+              
 
     record:
         name: 'recordinfo'
